@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { Button, HStack } from "@chakra-ui/react";
+import { Select, useChakraSelectProps } from "chakra-react-select";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +16,14 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
+  const selectProps = useChakraSelectProps({
+    options: [{
+      label: 'Test',
+      value: 'test'
+    }]
+  });
+
+
   return (
     <>
       <Head>
@@ -110,6 +120,11 @@ export default function Home() {
             />
             Go to nextjs.org →
           </a>
+          <HStack>
+            <Button>Click me</Button>
+            <Button>Click me</Button>
+            <Select {...selectProps}/>
+          </HStack>
         </footer>
       </div>
     </>
